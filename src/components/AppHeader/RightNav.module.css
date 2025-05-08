@@ -1,0 +1,5 @@
+.rightNav {
+  display: flex;
+  align-items: center;
+  gap: var(--rt-gap-xl);
+}

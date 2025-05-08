@@ -1,13 +1,13 @@
 import { createContext, useContext, useEffect, useState } from 'react';
 
 // ---------- Theme ----------
-enum Platform {
+export enum Platform {
   Corporate = 'corporate',
   Twilight = 'twilight',
   Velvet = 'velvet',
 }
 
-enum ColorMode {
+export enum ColorMode {
   Light = 'light',
   Dark = 'dark',
 }
@@ -17,12 +17,8 @@ interface Theme {
   colorMode: ColorMode;
 }
 
-const themeClasses = Object.values(Platform).flatMap((platform) =>
-  Object.values(ColorMode).flatMap((colorMode) => `${platform}-${colorMode}`),
-);
-
-function themeToClass(theme: Theme) {
-  return `${theme.platform}-${theme.colorMode}`;
+function getThemeFileName(theme: Theme) {
+  return `${theme.platform}.${theme.colorMode}.css`;
 }
 
 // ---------- ThemeContext ----------
@@ -47,14 +43,24 @@ export function ThemeProvider({
   const [theme, setTheme] = useState<Theme>({ platform, colorMode });
 
   useEffect(() => {
-    const newThemeClass = themeToClass(theme);
-    themeClasses.forEach((themeClass) => {
-      if (newThemeClass === themeClass) {
-        document.documentElement.classList.add(themeClass);
-      } else {
-        document.documentElement.classList.remove(themeClass);
+    // Create a link element for the theme CSS
+    const linkElement = document.createElement('link');
+    linkElement.rel = 'stylesheet';
+    linkElement.id = 'theme-stylesheet';
+
+    // Set the href to the theme file
+    linkElement.href = `/styles/${getThemeFileName(theme)}`;
+
+    // Add the link element to the document head
+    document.head.appendChild(linkElement);
+
+    // Cleanup function to remove the theme stylesheet when theme changes
+    return () => {
+      const existingLink = document.getElementById('theme-stylesheet');
+      if (existingLink) {
+        existingLink.remove();
       }
-    });
+    };
   }, [theme]);
 
   const value = { theme, setTheme };
