@@ -1,7 +1,7 @@
 .appHeader {
   /* w-full border-b */
   width: 100%;
-  border-bottom-width: 1px;
+  border-bottom-width: var(--rt-width-border-default);
 }
 
 .container {

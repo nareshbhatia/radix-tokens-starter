@@ -3,6 +3,17 @@ import {
   Platform,
   ColorMode,
 } from '../../providers/ThemeProvider';
+import { Button, ButtonIntent, ButtonSize, ButtonVariant } from '../Button';
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuGroup,
+  DropdownMenuItem,
+  DropdownMenuLabel,
+  DropdownMenuSeparator,
+  DropdownMenuTrigger,
+} from '../DropDownMenu';
+import { Icons } from '../Icons';
 
 export function ThemeSelector() {
   const { theme, setTheme } = useThemeContext();
@@ -19,40 +30,47 @@ export function ThemeSelector() {
   ];
 
   return (
-    <div className="theme-selector">
-      <div className="theme-selector__group">
-        <label htmlFor="platform">Platform:</label>
-        <select
-          id="platform"
-          onChange={(e) => {
-            setTheme({ ...theme, platform: e.target.value as Platform });
-          }}
-          value={theme.platform}
+    <DropdownMenu>
+      <DropdownMenuTrigger asChild>
+        <Button
+          intent={ButtonIntent.Neutral}
+          size={ButtonSize.Small}
+          variant={ButtonVariant.Minimal}
         >
+          <Icons.ellipsisVertical className="rt-size-16" />
+        </Button>
+      </DropdownMenuTrigger>
+      <DropdownMenuContent align="end">
+        <DropdownMenuGroup>
+          <DropdownMenuLabel>Platform</DropdownMenuLabel>
           {platforms.map((platform) => (
-            <option key={platform.value} value={platform.value}>
+            <DropdownMenuItem
+              data-selected={theme.platform === platform.value}
+              key={platform.value}
+              onClick={() => {
+                setTheme({ ...theme, platform: platform.value });
+              }}
+            >
               {platform.label}
-            </option>
+            </DropdownMenuItem>
           ))}
-        </select>
-      </div>
-
-      <div className="theme-selector__group">
-        <label htmlFor="colorMode">Color Mode:</label>
-        <select
-          id="colorMode"
-          onChange={(e) => {
-            setTheme({ ...theme, colorMode: e.target.value as ColorMode });
-          }}
-          value={theme.colorMode}
-        >
+        </DropdownMenuGroup>
+        <DropdownMenuSeparator />
+        <DropdownMenuGroup>
+          <DropdownMenuLabel>Color Mode</DropdownMenuLabel>
           {colorModes.map((mode) => (
-            <option key={mode.value} value={mode.value}>
+            <DropdownMenuItem
+              data-selected={theme.colorMode === mode.value}
+              key={mode.value}
+              onClick={() => {
+                setTheme({ ...theme, colorMode: mode.value });
+              }}
+            >
               {mode.label}
-            </option>
+            </DropdownMenuItem>
           ))}
-        </select>
-      </div>
-    </div>
+        </DropdownMenuGroup>
+      </DropdownMenuContent>
+    </DropdownMenu>
   );
 }
