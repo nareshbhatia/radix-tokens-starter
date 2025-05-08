@@ -1,0 +1,16 @@
+.page {
+  /* container flex-1 w-full */
+  margin: auto;
+  padding: 0 var(--rt-padding-xl);
+
+  flex: 1;
+  width: 100%;
+}
+
+.container {
+  /* flex flex-col gap-4 py-4 */
+  display: flex;
+  flex-direction: column;
+  gap: var(--rt-gap-xl);
+  padding: var(--rt-padding-xl) 0;
+}

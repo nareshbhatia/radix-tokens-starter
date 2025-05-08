@@ -1,0 +1,11 @@
+body {
+  background-color: var(--rt-color-bg-default);
+  color: var(--rt-color-text-default);
+  font-family: var(--rt-font-family-sans);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+* {
+  border-color: var(--rt-color-border-default);
+}

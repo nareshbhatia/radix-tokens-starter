@@ -1,0 +1,56 @@
+.rt-font-weight-bold {
+  font-weight: var(--rt-font-weight-bold);
+}
+
+.rt-font-size-body {
+  font-size: var(--rt-font-size-2);
+}
+
+.rt-link {
+  cursor: pointer;
+  color: var(--rt-color-text-secondary);
+}
+
+.rt-link:hover {
+  color: var(--rt-color-text-neutral-alpha);
+}
+
+.rt-link.active {
+  color: var(--rt-color-text-default);
+}
+
+.rt-heading-2xl {
+  /* text-4xl font-bold */
+  font-size: var(--rt-font-size-8);
+  font-weight: var(--rt-font-weight-bold);
+}
+
+.rt-heading-xl {
+  /* text-3xl font-medium */
+  font-size: var(--rt-font-size-7);
+  font-weight: var(--rt-font-weight-medium);
+}
+
+.rt-heading-lg {
+  /* text-2xl font-medium */
+  font-size: var(--rt-font-size-6);
+  font-weight: var(--rt-font-weight-medium);
+}
+
+.rt-body {
+  font-size: var(--rt-font-size-2);
+}
+
+.rt-width-3xl {
+  width: var(--rt-width-768);
+}
+
+.rt-size-16 {
+  width: var(--rt-width-16);
+  height: var(--rt-height-16);
+}
+
+.rt-size-20 {
+  width: var(--rt-width-20);
+  height: var(--rt-height-20);
+}

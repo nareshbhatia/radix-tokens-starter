@@ -1,0 +1,14 @@
+.mainNav {
+  /* flex items-center gap-4 */
+  display: flex;
+  align-items: center;
+  gap: var(--rt-gap-xl);
+}
+
+.navLinks {
+  /* flex items-center gap-4 text-sm */
+  display: flex;
+  align-items: center;
+  gap: var(--rt-gap-xl);
+  font-size: var(--rt-font-size-2);
+}

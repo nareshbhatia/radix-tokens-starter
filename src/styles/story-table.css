@@ -1,0 +1,31 @@
+.story-table {
+  border-collapse: collapse;
+  white-space: nowrap;
+
+  /* Prevent intrinsic line height from influencing alignment inside the table cells */
+  line-height: 0;
+
+  tr {
+    vertical-align: middle;
+  }
+
+  th,
+  td {
+    padding: 0;
+    padding-right: var(--rt-padding-xl);
+    padding-bottom: var(--rt-padding-xl);
+    text-align: center;
+  }
+
+  th {
+    font-weight: var(--font-weight-regular);
+    font-size: var(--rt-font-size-1);
+    line-height: var(--rt-line-height-1);
+    color: var(--rt-color-neutral-a11);
+  }
+
+  tbody th {
+    min-width: 64px;
+    text-align: left;
+  }
+}

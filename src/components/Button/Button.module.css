@@ -1,0 +1,118 @@
+.base {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--rt-gap-xs);
+  white-space: nowrap;
+  font-weight: var(--rt-font-weight-medium);
+  outline: none;
+  user-select: none;
+}
+
+.base:focus-visible {
+  outline: var(--rt-width-border-focus) solid var(--rt-color-border-focus);
+  outline-offset: var(--rt-offset-border-focus);
+}
+
+svg {
+  pointer-events: none;
+}
+
+.neutral.filled {
+  background-color: var(--rt-color-bg-neutral);
+  color: var(--rt-color-text-neutral-contrast);
+}
+
+.neutral.filled:hover {
+  background-color: var(--rt-color-bg-neutral-hover);
+}
+
+.neutral.minimal {
+  color: var(--rt-color-text-neutral-alpha);
+}
+
+.neutral.minimal:hover {
+  background-color: var(--rt-color-bg-neutral-hover-alpha);
+}
+
+.accent.filled {
+  background-color: var(--rt-color-bg-accent);
+  color: var(--rt-color-text-accent-contrast);
+}
+
+.accent.filled:hover {
+  background-color: var(--rt-color-bg-accent-hover);
+}
+
+.accent.minimal {
+  color: var(--rt-color-text-accent-alpha);
+}
+
+.accent.minimal:hover {
+  background-color: var(--rt-color-bg-accent-hover-alpha);
+}
+
+.warning.filled {
+  background-color: var(--rt-color-bg-warning);
+  color: var(--rt-color-text-warning-contrast);
+}
+
+.warning.filled:hover {
+  background-color: var(--rt-color-bg-warning-hover);
+}
+
+.warning.minimal {
+  color: var(--rt-color-text-warning-alpha);
+}
+
+.warning.minimal:hover {
+  background-color: var(--rt-color-bg-warning-hover-alpha);
+}
+
+.error.filled {
+  background-color: var(--rt-color-bg-error);
+  color: var(--rt-color-text-error-contrast);
+}
+
+.error.filled:hover {
+  background-color: var(--rt-color-bg-error-hover);
+}
+
+.error.minimal {
+  color: var(--rt-color-text-error-alpha);
+}
+
+.error.minimal:hover {
+  background-color: var(--rt-color-bg-error-hover-alpha);
+}
+
+.base:active {
+  transform: scale(0.95);
+}
+
+/*
+ * Disabled rules are placed below intent classes to ensure that
+ * they have a higher specificity, overriding the intent colors.
+ */
+.base[data-disabled] {
+  color: var(--rt-color-text-disabled);
+  pointer-events: none;
+}
+
+.base[data-disabled].filled {
+  background-color: var(--rt-color-bg-disabled);
+}
+
+.small {
+  border-radius: var(--rt-radius-xs);
+  font-size: var(--rt-font-size-1);
+  line-height: var(--rt-line-height-1);
+  padding: var(--rt-padding-xs) var(--rt-padding-md);
+}
+
+.medium {
+  border-radius: var(--rt-radius-sm);
+  font-size: var(--rt-font-size-2);
+  line-height: var(--rt-line-height-2);
+  padding: var(--rt-padding-sm) var(--rt-padding-md);
+}
