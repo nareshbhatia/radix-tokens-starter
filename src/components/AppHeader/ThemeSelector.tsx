@@ -24,8 +24,8 @@ export function ThemeSelector() {
   ];
 
   const colorModes = [
-    { value: ColorMode.Light, label: 'Light' },
     { value: ColorMode.Dark, label: 'Dark' },
+    { value: ColorMode.Light, label: 'Light' },
   ];
 
   return (
