@@ -7,9 +7,8 @@ import { Button, ButtonIntent, ButtonSize, ButtonVariant } from '../Button';
 import {
   DropdownMenu,
   DropdownMenuContent,
-  DropdownMenuGroup,
-  DropdownMenuItem,
-  DropdownMenuLabel,
+  DropdownMenuRadioGroup,
+  DropdownMenuRadioItem,
   DropdownMenuSeparator,
   DropdownMenuTrigger,
 } from '../DropDownMenu';
@@ -41,35 +40,31 @@ export function ThemeSelector() {
         </Button>
       </DropdownMenuTrigger>
       <DropdownMenuContent align="end">
-        <DropdownMenuGroup>
-          <DropdownMenuLabel>Platform</DropdownMenuLabel>
+        <DropdownMenuRadioGroup
+          onValueChange={(value) => {
+            setTheme({ ...theme, platform: value as Platform });
+          }}
+          value={theme.platform}
+        >
           {platforms.map((platform) => (
-            <DropdownMenuItem
-              data-selected={theme.platform === platform.value}
-              key={platform.value}
-              onClick={() => {
-                setTheme({ ...theme, platform: platform.value });
-              }}
-            >
+            <DropdownMenuRadioItem key={platform.value} value={platform.value}>
               {platform.label}
-            </DropdownMenuItem>
+            </DropdownMenuRadioItem>
           ))}
-        </DropdownMenuGroup>
+        </DropdownMenuRadioGroup>
         <DropdownMenuSeparator />
-        <DropdownMenuGroup>
-          <DropdownMenuLabel>Color Mode</DropdownMenuLabel>
+        <DropdownMenuRadioGroup
+          onValueChange={(value) => {
+            setTheme({ ...theme, colorMode: value as ColorMode });
+          }}
+          value={theme.colorMode}
+        >
           {colorModes.map((mode) => (
-            <DropdownMenuItem
-              data-selected={theme.colorMode === mode.value}
-              key={mode.value}
-              onClick={() => {
-                setTheme({ ...theme, colorMode: mode.value });
-              }}
-            >
+            <DropdownMenuRadioItem key={mode.value} value={mode.value}>
               {mode.label}
-            </DropdownMenuItem>
+            </DropdownMenuRadioItem>
           ))}
-        </DropdownMenuGroup>
+        </DropdownMenuRadioGroup>
       </DropdownMenuContent>
     </DropdownMenu>
   );

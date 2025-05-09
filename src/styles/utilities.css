@@ -45,6 +45,11 @@
   width: var(--rt-width-768);
 }
 
+.rt-size-8 {
+  width: var(--rt-width-8);
+  height: var(--rt-height-8);
+}
+
 .rt-size-16 {
   width: var(--rt-width-16);
   height: var(--rt-height-16);
@@ -53,4 +58,12 @@
 .rt-size-20 {
   width: var(--rt-width-20);
   height: var(--rt-height-20);
+}
+
+.fill-current {
+  fill: currentColor;
+}
+
+.ml-auto {
+  margin-left: auto;
 }
