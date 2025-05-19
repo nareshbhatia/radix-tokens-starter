@@ -104,14 +104,14 @@ svg {
 }
 
 .small {
-  border-radius: var(--rt-radius-xs);
+  border-radius: var(--rt-radius-sm);
   font-size: var(--rt-font-size-1);
   line-height: var(--rt-line-height-1);
   padding: var(--rt-padding-xs) var(--rt-padding-md);
 }
 
 .medium {
-  border-radius: var(--rt-radius-sm);
+  border-radius: var(--rt-radius-default);
   font-size: var(--rt-font-size-2);
   line-height: var(--rt-line-height-2);
   padding: var(--rt-padding-sm) var(--rt-padding-md);
